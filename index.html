@@ -5,187 +5,69 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NSW Police Force | Public Portal</title>
 <style>
-  /* ===== Fonts & Base ===== */
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Roboto', sans-serif; background: #f8faff; color: #111827; }
-
-  /* ===== Colors ===== */
-  :root {
-    --primary: #002664;
-    --secondary: #146CFD;
-    --light: #CBEDFD;
-    --text-dark: #111827;
-    --text-muted: #4b5563;
-  }
-
-  /* ===== Sign Up Panel ===== */
-  .signup-panel {
-    background: #fff;
-    padding: 50px 40px;
-    border-radius: 20px;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-    max-width: 400px;
-    margin: 80px auto;
-    text-align: center;
-  }
-  .signup-panel img {
-    width: 120px;
-    margin-bottom: 24px;
-  }
-  .signup-panel h1 {
-    font-size: 28px;
-    margin-bottom: 24px;
-    color: var(--primary);
-    font-weight: 700;
-  }
-  .signup-panel form { display: flex; flex-direction: column; gap: 16px; }
-  .signup-panel input {
-    padding: 14px;
-    font-size: 16px;
-    border: 1px solid #cbd5e1;
-    border-radius: 10px;
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  .signup-panel input:focus {
-    border-color: var(--secondary);
-    box-shadow: 0 0 0 3px rgba(20,108,253,0.2);
-  }
-  .signup-panel button {
-    padding: 14px;
-    font-size: 16px;
-    background: var(--secondary);
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: transform 0.2s, background 0.2s;
-  }
-  .signup-panel button:hover {
-    background: var(--primary);
-    transform: scale(1.05);
-  }
-
-  /* ===== Sections ===== */
-  section { padding: 80px 50px; max-width: 1200px; margin: 0 auto; }
-  h2 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 60px;
-    color: var(--primary);
-    position: relative;
-  }
-  h2::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: var(--secondary);
-    margin: 15px auto 0;
-    border-radius: 2px;
-  }
-
-  /* ===== Leadership & Divisions ===== */
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap: 30px;
-  }
-  .card {
-    background: white;
-    border-radius: 20px;
-    padding: 30px 20px;
-    box-shadow: 0 12px 35px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .card img { width: 100px; height: 100px; border-radius: 50%; margin-bottom: 15px; }
-  .card h3 { color: var(--primary); margin-bottom: 10px; }
-  .card p { color: var(--text-muted); font-size: 0.95rem; }
-  .card:hover { transform: translateY(-8px); box-shadow: 0 18px 45px rgba(0,0,0,0.15); }
-
-  /* ===== Mission ===== */
-  .mission { background: var(--light); text-align: center; padding: 80px 50px; color: var(--primary); border-radius: 20px; }
-  .mission p { max-width: 900px; margin: 0 auto 20px; font-size: 1.1rem; line-height: 1.7; }
-
-  /* ===== Footer ===== */
-  footer { text-align: center; padding: 25px; background: var(--primary); color: white; border-radius: 20px 20px 0 0; }
-
-  @media(max-width:900px) { .cards-grid { grid-template-columns: 1fr; } }
+  body { font-family: 'Roboto', sans-serif; margin:0; background:#f8faff; color:#111827; }
+  header { display:flex; justify-content:space-between; align-items:center; padding:20px 50px; background:#002664; color:white; }
+  header .logo { font-weight:700; font-size:1.8rem; }
+  nav a { margin-left: 30px; color:white; text-decoration:none; }
+  nav a:hover { color:#CBEDFD; }
+  .user-info { display:flex; align-items:center; gap:10px; }
+  .user-info .avatar { width:40px; height:40px; border-radius:50%; }
+  .login-btn { background:#146CFD; color:white; padding:8px 16px; border-radius:8px; text-decoration:none; }
+  .login-btn:hover { background:#002664; }
 </style>
 </head>
 <body>
 
-<!-- ===== Sign Up Panel ===== -->
-<div class="signup-panel">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/NSW_Police_badge.png" alt="NSW Police Force Logo">
-    <h1>Create an Account</h1>
-    <form>
-        <input type="text" placeholder="Username" required>
-        <input type="email" placeholder="Email" required>
-        <input type="password" placeholder="Password" required>
-        <button type="submit">Sign Up</button>
-    </form>
-</div>
+<header>
+  <div class="logo">NSW Police Force</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#leadership">Executive Leadership</a>
+    <a href="#divisions">Divisions</a>
+    <a href="#mission">Mission</a>
+  </nav>
+  <div class="user-info" id="userInfo">
+    <!-- Filled by JS -->
+    <a href="/login" class="login-btn" id="loginBtn">Login with Discord</a>
+  </div>
+</header>
 
-<!-- ===== Executive Leadership ===== -->
-<section id="leadership">
+<section id="leadership" style="padding:80px 50px;">
   <h2>Executive Leadership Team</h2>
-  <div class="cards-grid">
-    <div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/NSW_Police_badge.png" alt="">
-      <h3>Commissioner of Police</h3>
-      <p>Leads the NSW Police Force and ensures state-wide public safety.</p>
-    </div>
-    <div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/NSW_Police_badge.png" alt="">
-      <h3>Deputy Commissioner</h3>
-      <p>Oversees daily operations and supports strategic leadership.</p>
-    </div>
-    <div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/NSW_Police_badge.png" alt="">
-      <h3>Assistant Commissioner – Metropolitan Field Operations</h3>
-      <p>Manages urban policing and community safety in Sydney.</p>
-    </div>
-  </div>
+  <p>Placeholder for leadership cards...</p>
 </section>
 
-<!-- ===== Divisions ===== -->
-<section id="divisions">
+<section id="divisions" style="padding:80px 50px;">
   <h2>Policing Divisions</h2>
-  <div class="cards-grid">
-    <div class="card"><h3>General Duties</h3><p>Frontline community policing and public safety enforcement.</p></div>
-    <div class="card"><h3>Traffic & Highway Patrol</h3><p>Monitors road safety, runs lidar, random breath testing, provides escorts, and assists in traffic control or pursuits.</p></div>
-    <div class="card"><h3>State Crime Command</h3><p>Investigates serious and organised crime with specialist teams.</p></div>
-    <div class="card"><h3>Public Order & Riot Squad</h3><p>Handles large-scale events, protests, and crowd management.</p></div>
-    <div class="card"><h3>Tactical Operations Unit</h3><p>Responds to high-risk incidents including armed offenders and critical incidents.</p></div>
-  </div>
+  <p>Placeholder for division cards...</p>
 </section>
 
-<!-- ===== Mission ===== -->
-<section id="mission" class="mission">
+<section id="mission" style="padding:80px 50px;">
   <h2>Our Mission & Values</h2>
-  <p>Committed to serving the community with integrity, professionalism, and accountability. We work collaboratively to prevent crime, respond to incidents, and maintain public trust.</p>
-  <p>Our values include integrity, respect, professionalism, service, and innovation, guiding all our operations and community engagement efforts.</p>
+  <p>Committed to serving the community with integrity, professionalism, and accountability.</p>
 </section>
 
-<!-- ===== Footer ===== -->
-<footer>
-  © 2026 New South Wales Police Force. Public Information Portal.
+<footer style="text-align:center; padding:25px; background:#002664; color:white;">
+  © 2026 New South Wales Police Force
 </footer>
 
 <script>
-  // Animate cards on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.style.transform = 'translateY(0)';
-        entry.target.style.opacity = '1';
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
+  // This simulates user data from the backend
+  // In reality, the server would render this dynamically
+  const user = null; // Replace with backend JSON: { username, avatar, id }
 
-  document.querySelectorAll('.card').forEach(card => observer.observe(card));
+  const userInfo = document.getElementById('userInfo');
+  const loginBtn = document.getElementById('loginBtn');
+
+  if(user) {
+    userInfo.innerHTML = `
+      <img class="avatar" src="https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=64" alt="Avatar">
+      <span>${user.username}</span>
+      <a href="/logout" class="login-btn">Logout</a>
+    `;
+  } else {
+    loginBtn.href = '/login'; // Backend login route
+  }
 </script>
 </body>
 </html>
