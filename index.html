@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>New South Wales Police Force - Public Portal</title>
+<title>NSW Police Force | Public Portal</title>
 <style>
   /* ===== Fonts & Base ===== */
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Roboto', sans-serif; background: #f8faff; color: #111827; scroll-behavior: smooth; }
+  body { font-family: 'Roboto', sans-serif; background: #f8faff; color: #111827; }
 
   /* ===== Colors ===== */
   :root {
@@ -19,80 +19,65 @@
     --text-muted: #4b5563;
   }
 
-  /* ===== Header ===== */
-  header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0,38,100,0.95);
-    color: white;
-    padding: 20px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  }
-  .logo { font-weight: 700; font-size: 1.8rem; }
-  nav a { margin-left: 30px; font-weight: 500; color: white; transition: 0.2s; }
-  nav a:hover { color: var(--light); }
-
-  /* ===== Hero ===== */
-  .hero {
-    height: 100vh;
-    background: url('https://upload.wikimedia.org/wikipedia/commons/2/28/NSW_Police_HQ%2C_Sydney.jpg') center/cover no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* ===== Sign Up Panel ===== */
+  .signup-panel {
+    background: #fff;
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    max-width: 400px;
+    margin: 80px auto;
     text-align: center;
-    position: relative;
-    color: white;
   }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,38,100,0.6);
+  .signup-panel img {
+    width: 120px;
+    margin-bottom: 24px;
   }
-  .hero-content {
-    position: relative;
-    max-width: 900px;
-    z-index: 1;
+  .signup-panel h1 {
+    font-size: 28px;
+    margin-bottom: 24px;
+    color: var(--primary);
+    font-weight: 700;
   }
-  .hero h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 700; line-height: 1.2; animation: fadeIn 1.2s ease forwards; opacity: 0; }
-  .hero p { font-size: 1.3rem; margin-bottom: 30px; opacity: 0; animation: fadeIn 1.5s ease forwards; animation-delay: 0.3s; }
-  .hero button {
-    background-color: var(--secondary);
-    color: white;
+  .signup-panel form { display: flex; flex-direction: column; gap: 16px; }
+  .signup-panel input {
+    padding: 14px;
+    font-size: 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .signup-panel input:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(20,108,253,0.2);
+  }
+  .signup-panel button {
+    padding: 14px;
+    font-size: 16px;
+    background: var(--secondary);
+    color: #fff;
     border: none;
-    padding: 15px 35px;
-    font-size: 1rem;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    font-weight: 500;
-    transition: transform 0.3s, background 0.3s;
-    opacity: 0;
-    animation: fadeIn 1.8s ease forwards;
-    animation-delay: 0.6s;
+    font-weight: 600;
+    transition: transform 0.2s, background 0.2s;
   }
-  .hero button:hover { transform: scale(1.05); background-color: var(--light); color: var(--primary); }
-
-  @keyframes fadeIn { to { opacity: 1; } }
+  .signup-panel button:hover {
+    background: var(--primary);
+    transform: scale(1.05);
+  }
 
   /* ===== Sections ===== */
-  section {
-    padding: 100px 50px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  section h2 {
+  section { padding: 80px 50px; max-width: 1200px; margin: 0 auto; }
+  h2 {
     font-size: 2.5rem;
-    margin-bottom: 60px;
     text-align: center;
+    margin-bottom: 60px;
     color: var(--primary);
     position: relative;
   }
-  section h2::after {
+  h2::after {
     content: '';
     display: block;
     width: 80px;
@@ -102,96 +87,64 @@
     border-radius: 2px;
   }
 
-  /* ===== Executive Leadership ===== */
-  .leaders { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
-  .leader-card {
+  /* ===== Leadership & Divisions ===== */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 30px;
+  }
+  .card {
     background: white;
-    border-radius: 15px;
+    border-radius: 20px;
     padding: 30px 20px;
-    width: 260px;
-    text-align: center;
     box-shadow: 0 12px 35px rgba(0,0,0,0.1);
-    transform: translateY(20px);
-    opacity: 0;
-    transition: transform 0.5s, box-shadow 0.3s;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
   }
-  .leader-card img { width: 100px; height: 100px; border-radius: 50%; margin-bottom: 15px; }
-  .leader-card h3 { margin-bottom: 10px; color: var(--primary); font-size: 1.1rem; }
-  .leader-card p { color: var(--text-muted); font-size: 0.95rem; }
-  .leader-card:hover { transform: translateY(-5px); box-shadow: 0 18px 45px rgba(0,0,0,0.15); }
-
-  /* ===== Divisions ===== */
-  .division-cards { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 30px; }
-  .division-card {
-    background: white;
-    border-radius: 15px;
-    padding: 25px;
-    border-top: 5px solid var(--secondary);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-    transform: translateY(20px);
-    opacity: 0;
-    transition: transform 0.5s, box-shadow 0.3s;
-  }
-  .division-card h3 { margin-bottom: 10px; color: var(--primary); }
-  .division-card p { color: var(--text-muted); font-size: 0.95rem; }
+  .card img { width: 100px; height: 100px; border-radius: 50%; margin-bottom: 15px; }
+  .card h3 { color: var(--primary); margin-bottom: 10px; }
+  .card p { color: var(--text-muted); font-size: 0.95rem; }
+  .card:hover { transform: translateY(-8px); box-shadow: 0 18px 45px rgba(0,0,0,0.15); }
 
   /* ===== Mission ===== */
-  .mission { background: var(--light); text-align: center; padding: 100px 50px; color: var(--primary); border-radius: 15px; }
+  .mission { background: var(--light); text-align: center; padding: 80px 50px; color: var(--primary); border-radius: 20px; }
   .mission p { max-width: 900px; margin: 0 auto 20px; font-size: 1.1rem; line-height: 1.7; }
 
   /* ===== Footer ===== */
-  footer { text-align: center; padding: 25px; background: var(--primary); color: white; }
+  footer { text-align: center; padding: 25px; background: var(--primary); color: white; border-radius: 20px 20px 0 0; }
 
-  /* ===== Responsive ===== */
-  @media (max-width: 900px) { .leaders, .division-cards { grid-template-columns: 1fr; } }
-
+  @media(max-width:900px) { .cards-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="logo">NSW Police Force</div>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#leadership">Executive Leadership</a>
-    <a href="#divisions">Divisions</a>
-    <a href="#mission">Mission</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<!-- ===== Hero ===== -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Protecting and Serving New South Wales</h1>
-    <p>Delivering professional policing, community safety, and public trust across the state.</p>
-    <button id="learnBtn">Explore More</button>
-  </div>
-</section>
+<!-- ===== Sign Up Panel ===== -->
+<div class="signup-panel">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/NSW_Police_badge.png" alt="NSW Police Force Logo">
+    <h1>Create an Account</h1>
+    <form>
+        <input type="text" placeholder="Username" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Sign Up</button>
+    </form>
+</div>
 
 <!-- ===== Executive Leadership ===== -->
 <section id="leadership">
   <h2>Executive Leadership Team</h2>
-  <div class="leaders">
-    <div class="leader-card"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/NSW_Police_badge.png" alt="">
+  <div class="cards-grid">
+    <div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/NSW_Police_badge.png" alt="">
       <h3>Commissioner of Police</h3>
       <p>Leads the NSW Police Force and ensures state-wide public safety.</p>
     </div>
-    <div class="leader-card"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/NSW_Police_badge.png" alt="">
+    <div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/NSW_Police_badge.png" alt="">
       <h3>Deputy Commissioner</h3>
       <p>Oversees daily operations and supports strategic leadership.</p>
     </div>
-    <div class="leader-card"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/NSW_Police_badge.png" alt="">
+    <div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/NSW_Police_badge.png" alt="">
       <h3>Assistant Commissioner – Metropolitan Field Operations</h3>
       <p>Manages urban policing and community safety in Sydney.</p>
-    </div>
-    <div class="leader-card"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/NSW_Police_badge.png" alt="">
-      <h3>Assistant Commissioner – Investigations & Counter Terrorism</h3>
-      <p>Leads investigations and counter-terrorism initiatives.</p>
-    </div>
-    <div class="leader-card"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/NSW_Police_badge.png" alt="">
-      <h3>Assistant Commissioner – People & Capability Command</h3>
-      <p>Responsible for recruitment, training, and workforce management.</p>
     </div>
   </div>
 </section>
@@ -199,14 +152,12 @@
 <!-- ===== Divisions ===== -->
 <section id="divisions">
   <h2>Policing Divisions</h2>
-  <div class="division-cards">
-    <div class="division-card"><h3>General Duties</h3><p>Frontline community policing, crime prevention, and public safety enforcement.</p></div>
-    <div class="division-card"><h3>Highway Patrol</h3><p>Monitors road safety and enforces traffic laws on major highways.</p></div>
-    <div class="division-card"><h3>State Crime Command</h3><p>Investigates serious and organised crime with specialist teams.</p></div>
-    <div class="division-card"><h3>Public Order & Riot Squad</h3><p>Handles large-scale events, protests, and crowd management.</p></div>
-    <div class="division-card"><h3>Tactical Operations Unit</h3><p>Responds to high-risk incidents including armed offenders and critical incidents.</p></div>
-    <div class="division-card"><h3>Professional Standards Command</h3><p>Maintains integrity and investigates misconduct across the Force.</p></div>
-    <div class="division-card"><h3>Education & Training Command</h3><p>Provides continuous professional development and police training.</p></div>
+  <div class="cards-grid">
+    <div class="card"><h3>General Duties</h3><p>Frontline community policing and public safety enforcement.</p></div>
+    <div class="card"><h3>Traffic & Highway Patrol</h3><p>Monitors road safety, runs lidar, random breath testing, provides escorts, and assists in traffic control or pursuits.</p></div>
+    <div class="card"><h3>State Crime Command</h3><p>Investigates serious and organised crime with specialist teams.</p></div>
+    <div class="card"><h3>Public Order & Riot Squad</h3><p>Handles large-scale events, protests, and crowd management.</p></div>
+    <div class="card"><h3>Tactical Operations Unit</h3><p>Responds to high-risk incidents including armed offenders and critical incidents.</p></div>
   </div>
 </section>
 
@@ -218,15 +169,11 @@
 </section>
 
 <!-- ===== Footer ===== -->
-<footer id="contact">
+<footer>
   © 2026 New South Wales Police Force. Public Information Portal.
 </footer>
 
 <script>
-  document.getElementById("learnBtn").addEventListener("click", () => {
-    window.scrollTo({ top: document.getElementById("leadership").offsetTop-80, behavior: 'smooth' });
-  });
-
   // Animate cards on scroll
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -238,7 +185,7 @@
     });
   }, { threshold: 0.2 });
 
-  document.querySelectorAll('.leader-card, .division-card').forEach(card => observer.observe(card));
+  document.querySelectorAll('.card').forEach(card => observer.observe(card));
 </script>
 </body>
 </html>
