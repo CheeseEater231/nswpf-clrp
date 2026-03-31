@@ -5,11 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>New South Wales Police Force - Public Portal</title>
 <style>
-  /* ===== Reset & Base ===== */
+  /* ===== Base & Reset ===== */
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', Arial, sans-serif; background: #ffffff; color: #1f2937; line-height: 1.6; }
-  a { color: #2563eb; text-decoration: none; transition: color 0.2s; }
-  a:hover { color: #1d4ed8; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8faff; color: #111827; scroll-behavior: smooth; }
+  a { color: #146CFD; text-decoration: none; transition: color 0.2s; }
+  a:hover { color: #002664; }
+  h1,h2,h3 { color: #002664; }
+
+  /* ===== Colors ===== */
+  :root {
+    --primary: #002664;
+    --secondary: #146CFD;
+    --light: #CBEDFD;
+    --bg-light: #f8faff;
+    --text-dark: #111827;
+    --text-muted: #4b5563;
+  }
 
   /* ===== Header ===== */
   header {
@@ -17,46 +28,63 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    background-color: #f3f4f6;
+    background-color: var(--primary);
+    color: white;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
   }
-  .logo { font-weight: bold; font-size: 1.8rem; color: #111827; }
-  nav a { margin-left: 30px; font-weight: 500; }
+  .logo { font-weight: bold; font-size: 1.8rem; }
+  nav a { margin-left: 30px; font-weight: 500; color: white; }
+  nav a:hover { color: var(--light); }
 
-  /* ===== Hero Section ===== */
+  /* ===== Hero ===== */
   .hero {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80vh;
-    background: linear-gradient(135deg, #e0f2fe, #ffffff);
+    height: 90vh;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
     text-align: center;
     padding: 0 20px;
   }
-  .hero h1 { font-size: 3rem; margin-bottom: 20px; }
-  .hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 30px; }
+  .hero h1 { font-size: 3rem; margin-bottom: 20px; text-shadow: 2px 2px 6px rgba(0,0,0,0.3); }
+  .hero p { font-size: 1.3rem; max-width: 700px; margin-bottom: 30px; }
   .hero button {
-    background-color: #2563eb;
-    color: #ffffff;
+    background-color: white;
+    color: var(--primary);
     border: none;
     padding: 15px 35px;
-    border-radius: 6px;
-    font-size: 1rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
     cursor: pointer;
-    transition: background-color 0.2s, transform 0.2s;
+    font-weight: bold;
+    transition: transform 0.2s, background 0.2s, color 0.2s;
   }
-  .hero button:hover { background-color: #1d4ed8; transform: scale(1.05); }
+  .hero button:hover { transform: scale(1.05); background-color: var(--light); color: var(--primary); }
+
+  /* ===== Section Headers ===== */
+  section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    position: relative;
+  }
+  section h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--secondary);
+    margin: 15px auto 0;
+    border-radius: 2px;
+  }
 
   /* ===== Executive Leadership ===== */
-  .leadership {
-    padding: 80px 50px 50px;
-    background-color: #f9fafb;
-  }
-  .leadership h2 { text-align: center; margin-bottom: 50px; font-size: 2.5rem; }
+  .leadership { padding: 80px 50px; background: var(--bg-light); }
   .leaders {
     display: flex;
     justify-content: space-around;
@@ -64,49 +92,55 @@
     gap: 30px;
   }
   .leader-card {
-    background-color: #ffffff;
+    background: white;
     border-radius: 15px;
     padding: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     flex: 1 1 250px;
     max-width: 300px;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
   }
-  .leader-card:hover { transform: translateY(-10px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+  .leader-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
   .leader-card img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; }
-  .leader-card h3 { margin-bottom: 5px; font-size: 1.1rem; }
-  .leader-card p { font-size: 0.95rem; color: #4b5563; }
+  .leader-card h3 { margin-bottom: 5px; font-size: 1.2rem; color: var(--primary); }
+  .leader-card p { font-size: 0.95rem; color: var(--text-muted); }
 
-  /* ===== Divisions Section ===== */
-  .divisions {
-    padding: 80px 50px;
-  }
-  .divisions h2 { text-align: center; margin-bottom: 50px; font-size: 2.5rem; }
+  /* ===== Divisions ===== */
+  .divisions { padding: 80px 50px; }
   .division-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
   }
   .division-card {
-    background-color: #ffffff;
+    background: white;
     border-radius: 15px;
     padding: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 5px solid var(--secondary);
   }
-  .division-card:hover { transform: translateY(-10px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-  .division-card h3 { margin-bottom: 10px; color: #111827; font-size: 1.1rem; }
-  .division-card p { color: #4b5563; font-size: 0.95rem; }
+  .division-card:hover { transform: translateY(-10px); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
+  .division-card h3 { margin-bottom: 10px; color: var(--primary); font-size: 1.2rem; }
+  .division-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+  /* ===== Mission / Values Section ===== */
+  .mission {
+    padding: 80px 50px;
+    background: var(--light);
+    color: var(--primary);
+  }
+  .mission h2 { color: var(--primary); }
+  .mission p { max-width: 900px; margin: 0 auto 20px; font-size: 1.1rem; line-height: 1.8; }
 
   /* ===== Footer ===== */
   footer {
-    background-color: #f3f4f6;
+    background-color: var(--primary);
     text-align: center;
     padding: 25px 50px;
-    margin-top: 50px;
+    color: white;
     font-size: 0.9rem;
-    color: #6b7280;
   }
 
   /* ===== Responsive ===== */
@@ -118,20 +152,21 @@
 
   <!-- ===== Header ===== -->
   <header>
-    <div class="logo">New South Wales Police Force</div>
+    <div class="logo">NSW Police Force</div>
     <nav>
       <a href="#">Home</a>
       <a href="#leadership">Executive Leadership</a>
       <a href="#divisions">Divisions</a>
+      <a href="#mission">Mission & Values</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- ===== Hero Section ===== -->
+  <!-- ===== Hero ===== -->
   <section class="hero">
-    <h1>Welcome to the New South Wales Police Force</h1>
-    <p>Serving the community with integrity, professionalism, and commitment to public safety across New South Wales.</p>
-    <button id="noticeBtn">Learn More</button>
+    <h1>Protecting and Serving the People of New South Wales</h1>
+    <p>Delivering professional policing, community safety, and public trust across the state.</p>
+    <button id="learnBtn">Learn More</button>
   </section>
 
   <!-- ===== Executive Leadership ===== -->
@@ -141,75 +176,81 @@
       <div class="leader-card">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/NSW_Police_badge.png/100px-NSW_Police_badge.png" alt="Commissioner">
         <h3>Commissioner of Police</h3>
-        <p>Responsible for the overall leadership and strategic direction of the NSW Police Force.</p>
+        <p>Responsible for leading the NSW Police Force, shaping strategy, and ensuring effective public safety outcomes.</p>
       </div>
       <div class="leader-card">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/NSW_Police_badge.png/100px-NSW_Police_badge.png" alt="Deputy Commissioner">
         <h3>Deputy Commissioner</h3>
-        <p>Oversees day-to-day operations and supports the Commissioner in all strategic matters.</p>
+        <p>Supports the Commissioner and oversees operational policing across all commands.</p>
       </div>
       <div class="leader-card">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/NSW_Police_badge.png/100px-NSW_Police_badge.png" alt="Assistant Commissioner Metropolitan Field Operations">
         <h3>Assistant Commissioner - Metropolitan Field Operations</h3>
-        <p>Manages policing operations across metropolitan Sydney, including frontline patrols and community safety.</p>
+        <p>Manages urban policing, frontline patrols, and rapid response teams within metropolitan areas.</p>
       </div>
       <div class="leader-card">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/NSW_Police_badge.png/100px-NSW_Police_badge.png" alt="Assistant Commissioner Investigations & Counter Terrorism">
         <h3>Assistant Commissioner - Investigations & Counter Terrorism</h3>
-        <p>Leads criminal investigations, counter-terrorism initiatives, and intelligence operations.</p>
+        <p>Leads investigations into serious crime, organised crime, and counter-terrorism operations.</p>
       </div>
       <div class="leader-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/NSW_Police_badge.png/100px-NSW_Police_badge.png" alt="Assistant Commissioner People & Capability Command">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/NSW_Police_badge.png/100px-NSW_Police_badge.png" alt="Assistant Commissioner People & Capability">
         <h3>Assistant Commissioner - People & Capability Command</h3>
-        <p>Responsible for recruitment, training, workforce management, and professional development.</p>
+        <p>Responsible for recruitment, professional development, and ensuring workforce capability across NSWPF.</p>
       </div>
     </div>
   </section>
 
   <!-- ===== Divisions ===== -->
   <section class="divisions" id="divisions">
-    <h2>Divisions and Their Functions</h2>
+    <h2>Policing Divisions</h2>
     <div class="division-cards">
       <div class="division-card">
         <h3>General Duties</h3>
-        <p>Frontline police providing community safety, crime prevention, and everyday law enforcement across NSW.</p>
+        <p>Frontline policing for public safety, crime prevention, and law enforcement across communities.</p>
       </div>
       <div class="division-card">
         <h3>Highway Patrol</h3>
-        <p>Responsible for road safety, traffic law enforcement, and responding to incidents on major highways and roads.</p>
+        <p>Monitors road safety, responds to traffic incidents, and enforces traffic laws on NSW roads.</p>
       </div>
       <div class="division-card">
         <h3>State Crime Command</h3>
-        <p>Investigates serious, organised, and complex crimes with specialist teams and resources.</p>
+        <p>Investigates serious and organised crimes with specialist teams across NSW.</p>
       </div>
       <div class="division-card">
-        <h3>Public Order and Riot Squad</h3>
-        <p>Specialised unit for managing large-scale public order events, protests, and riots.</p>
+        <h3>Public Order & Riot Squad</h3>
+        <p>Specialist unit handling large-scale public order events, protests, and crowd management.</p>
       </div>
       <div class="division-card">
         <h3>Tactical Operations Unit</h3>
-        <p>Responds to critical incidents including armed offenders, hostage situations, and high-risk operations.</p>
+        <p>Responds to high-risk incidents including armed offenders and critical incidents.</p>
       </div>
       <div class="division-card">
         <h3>Professional Standards Command</h3>
-        <p>Ensures integrity, accountability, and public confidence through investigations of complaints and misconduct.</p>
+        <p>Ensures integrity, investigates misconduct, and maintains public confidence.</p>
       </div>
       <div class="division-card">
-        <h3>Education and Training Command</h3>
-        <p>Delivers police education, professional development, and continuous training programs for officers.</p>
+        <h3>Education & Training Command</h3>
+        <p>Provides police training, professional development, and continuous education programs.</p>
       </div>
     </div>
   </section>
 
+  <!-- ===== Mission & Values ===== -->
+  <section class="mission" id="mission">
+    <h2>Our Mission & Values</h2>
+    <p>The New South Wales Police Force is committed to serving the community with integrity, professionalism, and accountability. We work collaboratively with communities to prevent crime, respond to incidents, and maintain public safety across the state.</p>
+    <p>Our core values include integrity, respect, innovation, professionalism, and service. We aim to build trust, maintain high standards of policing, and support a safe and secure environment for all citizens.</p>
+  </section>
+
   <!-- ===== Footer ===== -->
   <footer id="contact">
-    © New South Wales Police Force 2026. Public Information Portal.
+    © 2026 New South Wales Police Force. Public Information Portal.
   </footer>
 
-  <!-- ===== JS ===== -->
   <script>
-    document.getElementById("noticeBtn").addEventListener("click", () => {
-      alert("Welcome to the public NSW Police Force portal. Explore our leadership, divisions, and public services.");
+    document.getElementById("learnBtn").addEventListener("click", () => {
+      alert("Explore leadership, divisions, and our mission for a safer New South Wales.");
     });
   </script>
 </body>
