@@ -14,14 +14,20 @@ body {
   font-family: 'Inter', sans-serif;
   background: linear-gradient(180deg, #001a2e 0%, #0a0f1a 100%);
   color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+/* WRAPS ENTIRE SITE (fixes zoom/stretch look) */
+.page {
+  width: 1200px;
 }
 
 /* HEADER */
 header {
   position: sticky;
-  top: 0;
+  top: 20px;
   z-index: 100;
-  margin: 20px;
   padding: 14px 26px;
   display: flex;
   align-items: center;
@@ -39,7 +45,7 @@ header {
 }
 
 .logo-img {
-  height: 34px;
+  height: 32px;
   width: auto;
   object-fit: contain;
 }
@@ -79,7 +85,7 @@ nav a:hover {
 
 /* HERO */
 .hero {
-  margin: 0 20px;
+  margin-top: 20px;
   border-radius: 28px;
   overflow: hidden;
   position: relative;
@@ -87,7 +93,7 @@ nav a:hover {
 
 .hero img {
   width: 100%;
-  height: 360px;
+  height: 340px;
   object-fit: cover;
   filter: brightness(0.45);
 }
@@ -140,7 +146,7 @@ nav a:hover {
 
 /* QUICK ACCESS */
 .stats {
-  margin: 20px;
+  margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
@@ -171,14 +177,9 @@ nav a:hover {
   object-fit: contain;
 }
 
-.link-card span {
-  font-size: 0.95rem;
-  font-weight: 500;
-}
-
 /* SECTIONS */
 section {
-  padding: 70px 60px;
+  padding: 70px 0;
 }
 
 .section-title {
@@ -215,18 +216,9 @@ section {
   padding: 20px;
 }
 
-.card h3 {
-  margin: 0 0 8px;
-}
-
-.card p {
-  opacity: 0.75;
-  font-size: 0.92rem;
-}
-
 /* CTA */
 .cta {
-  margin: 40px 20px;
+  margin-top: 40px;
   padding: 40px;
   border-radius: 28px;
   background: linear-gradient(135deg, #1d4ed8, #0ea5e9);
@@ -234,7 +226,7 @@ section {
 
 /* FOOTER */
 footer {
-  margin: 20px;
+  margin: 20px 0;
   padding: 25px;
   border-radius: 24px;
   background: rgba(0,0,0,0.3);
@@ -245,6 +237,8 @@ footer {
 </head>
 
 <body>
+
+<div class="page">
 
 <header>
   <div class="logo-wrap">
@@ -267,7 +261,6 @@ footer {
 
 <div class="hero">
   <img src="assets/images/BG1.png">
-
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
@@ -275,8 +268,7 @@ footer {
 
     <p>
       Responsible for keeping communities across New South Wales safe.
-      Officers respond to emergencies, investigate crime, patrol local areas,
-      and enforce the law.
+      Officers respond to emergencies, investigate crime, patrol local areas.
     </p>
 
     <div class="hero-buttons">
@@ -285,7 +277,6 @@ footer {
   </div>
 </div>
 
-<!-- QUICK ACCESS -->
 <div class="stats">
 
   <a class="link-card" href="https://discord.gg/coastline" target="_blank">
@@ -312,56 +303,34 @@ footer {
 
     <div class="card">
       <img src="assets/images/cheese.png">
-      <div class="card-content">
-        <h3>CheeseEater231</h3>
-        <p><strong>Commissioner</strong></p>
-      </div>
+      <div class="card-content"><h3>CheeseEater231</h3><p>Commissioner</p></div>
     </div>
 
     <div class="card">
       <img src="assets/images/justin.png">
-      <div class="card-content">
-        <h3>thehgveygdvyvwg6</h3>
-        <p><strong>Deputy Commissioner</strong></p>
-      </div>
+      <div class="card-content"><h3>Deputy Commissioner</h3></div>
     </div>
 
     <div class="card">
       <img src="assets/images/drfav.png">
-      <div class="card-content">
-        <h3>DrFavPanda</h3>
-        <p><strong>Assistant Commissioner</strong></p>
-        <p><em>Metropolitan Field Operations</em></p>
-      </div>
+      <div class="card-content"><h3>DrFavPanda</h3></div>
     </div>
 
     <div class="card">
       <img src="">
-      <div class="card-content">
-        <h3>Vacant</h3>
-        <p><strong>Assistant Commissioner</strong></p>
-      </div>
+      <div class="card-content"><h3>Vacant</h3></div>
     </div>
 
     <div class="card">
       <img src="assets/images/jelly.png">
-      <div class="card-content">
-        <h3>Jellybeanking20010</h3>
-        <p><strong>Assistant Commissioner</strong></p>
-        <p><em>People & Capability Command</em></p>
-      </div>
+      <div class="card-content"><h3>Jellybeanking20010</h3></div>
     </div>
 
   </div>
 </section>
 
-<section id="divisions">
-  <div class="section-title">Divisions</div>
-</section>
-
-<section id="mission">
-  <div class="section-title">Mission & Values</div>
-</section>
+<section id="divisions"></section>
+<section id="mission"></section>
 
 <div class="cta">
   <h2>Join or Learn More</h2>
@@ -369,6 +338,8 @@ footer {
 </div>
 
 <footer>© 2026 NSW Police Force</footer>
+
+</div>
 
 </body>
 </html>
