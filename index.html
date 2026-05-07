@@ -135,18 +135,40 @@ nav a:hover {
   color: #fff;
 }
 
+/* QUICK ACTION CARDS */
 .stats {
   margin: 30px 20px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-.stat {
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
   background: rgba(0,0,0,0.3);
   border-radius: 24px;
-  padding: 20px;
-  text-align: center;
+  padding: 18px;
+  text-decoration: none;
+  color: #fff;
+  transition: 0.25s;
+}
+
+.link-card:hover {
+  transform: translateY(-5px);
+  background: rgba(0,0,0,0.45);
+}
+
+.link-card img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.link-card span {
+  font-size: 0.95rem;
+  font-weight: 500;
 }
 
 section {
@@ -214,7 +236,7 @@ footer {
 
 @media(max-width:900px){
   .stats {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 
   .hero h1 {
@@ -229,7 +251,6 @@ footer {
 <header>
   <div class="logo-wrap">
     <img src="assets/images/NSWPF (1).png" class="logo-img">
-
     <div class="logo-text">
       New South Wales Police Force<br>
       <span>Coastline Roleplay</span>
@@ -248,7 +269,6 @@ footer {
 
 <div class="hero">
   <img src="assets/images/BG1.png">
-
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
@@ -267,27 +287,29 @@ footer {
   </div>
 </div>
 
-<div class="stats">
-  <div class="stat">
-    <h2>20k+</h2>
-    <p>Officers</p>
-  </div>
+<!-- QUICK ACTIONS -->
+<section>
+  <div class="section-title">Quick Access</div>
 
-  <div class="stat">
-    <h2>150+</h2>
-    <p>Stations</p>
-  </div>
+  <div class="stats">
 
-  <div class="stat">
-    <h2>24/7</h2>
-    <p>Response</p>
-  </div>
+    <a class="link-card" href="https://discord.gg/coastline" target="_blank">
+      <img src="assets/images/discord.png">
+      <span>Join the Community Today</span>
+    </a>
 
-  <div class="stat">
-    <h2>Statewide</h2>
-    <p>Coverage</p>
+    <a class="link-card" href="https://www.roblox.com/communities/34274464/Coastline-Roleplay" target="_blank">
+      <img src="assets/images/roblox.png">
+      <span>Join the Group Today</span>
+    </a>
+
+    <a class="link-card" href="https://melon.ly/form/7452924311171502080" target="_blank">
+      <img src="assets/images/NSWPF (1).png">
+      <span>Lodge a Complaint</span>
+    </a>
+
   </div>
-</div>
+</section>
 
 <section id="leadership">
   <div class="section-title">Executive Leadership Team</div>
@@ -296,53 +318,43 @@ footer {
 
     <div class="card">
       <img src="assets/images/cheese.png">
-
       <div class="card-content">
         <h3>CheeseEater231</h3>
         <p><strong>Commissioner</strong></p>
-        <p>The Commissioner is the highest ranking officer. They oversee the entire department and have final authority over all operational, administrative, and disciplinary matters.</p>
       </div>
     </div>
 
     <div class="card">
       <img src="assets/images/justin.png">
-
       <div class="card-content">
         <h3>thehgveygdvyvwg6</h3>
         <p><strong>Deputy Commissioner</strong></p>
-        <p>The Deputy Commissioner supports the Commissioner in leading the department. They oversee the Assistant Commissioners and assist in ensuring the department functions effectively.</p>
       </div>
     </div>
 
     <div class="card">
       <img src="assets/images/drfav.png">
-
       <div class="card-content">
         <h3>DrFavPanda</h3>
         <p><strong>Assistant Commissioner</strong></p>
-        <p>There is one Assistant Commissioner for each of the three main branches, Metropolitan Field Operations, Investigation and Counter Terrorism, and People and Capability Command.</p>
         <p><em>Metropolitan Field Operations</em></p>
       </div>
     </div>
 
     <div class="card">
-      <img src="" style="display:none;">
-
+      <img src="">
       <div class="card-content">
         <h3>Vacant</h3>
         <p><strong>Assistant Commissioner</strong></p>
-        <p>There is one Assistant Commissioner for each of the three main branches, Metropolitan Field Operations, Investigation and Counter Terrorism, and People and Capability Command.</p>
         <p><em>Investigation & Counter Terrorism</em></p>
       </div>
     </div>
 
     <div class="card">
       <img src="assets/images/jelly.png">
-
       <div class="card-content">
         <h3>Jellybeanking20010</h3>
         <p><strong>Assistant Commissioner</strong></p>
-        <p>There is one Assistant Commissioner for each of the three main branches, Metropolitan Field Operations, Investigation and Counter Terrorism, and People and Capability Command.</p>
         <p><em>People & Capability Command</em></p>
       </div>
     </div>
