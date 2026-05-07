@@ -19,15 +19,11 @@
 :root{
     --bg:#04070d;
     --bg2:#0b1320;
-
     --text:#ffffff;
     --muted:#a8b7ca;
-
     --blue:#5ab0ff;
     --blue2:#89cbff;
-
     --line:rgba(255,255,255,0.07);
-
     --shadow:0 40px 100px rgba(0,0,0,0.45);
 }
 
@@ -114,7 +110,7 @@ body{
     font-size:13px;
     font-weight:700;
 
-    z-index:999;
+    z-index:9999;
 
     transition:0.3s;
 }
@@ -382,7 +378,7 @@ footer p{
 <div class="glow-top"></div>
 <div class="glow-bottom"></div>
 
-<a class="discord-btn" href="#" target="_blank">
+<a class="discord-btn" href="https://discord.gg/coastline" target="_blank">
     <img src="assets/images/discord.png">
     Join Community
 </a>
@@ -481,7 +477,7 @@ footer p{
 
 <section class="end">
 <h2>SPRINGWOOD <br> IS COMING.</h2>
-<p>Developed by the Coastline Group.</p>
+<p>Developed by the Coastline Group</p>
 </section>
 
 <footer>
@@ -490,9 +486,9 @@ footer p{
 
 <script>
 
-const observer = new IntersectionObserver((entries)=>{
+const observer=new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
-        if(e.isIntersecting) e.target.classList.add("visible");
+        if(e.isIntersecting)e.target.classList.add("visible");
     });
 },{threshold:0.15});
 
