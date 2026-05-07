@@ -7,6 +7,9 @@
 
 <title>Springwood NSW | Coastline Group</title>
 
+<!-- WEBSITE TAB ICON -->
+<link rel="icon" type="image/png" href="assets/images/coastline.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -401,100 +404,6 @@ body{
 }
 
 /* ====================================================== */
-/* SHOWCASE */
-/* ====================================================== */
-
-.showcase{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-
-    gap:70px;
-
-    align-items:center;
-
-    margin-top:140px;
-}
-
-.showcase-image{
-    position:relative;
-
-    border-radius:36px;
-
-    overflow:hidden;
-
-    border:1px solid rgba(255,255,255,0.08);
-
-    box-shadow:var(--shadow);
-}
-
-.showcase-image img{
-    width:100%;
-    height:700px;
-
-    object-fit:cover;
-
-    transition:1.2s cubic-bezier(.16,1,.3,1);
-
-    filter:brightness(0.82);
-}
-
-.showcase:hover .showcase-image img{
-    transform:scale(1.05);
-}
-
-.showcase-image::after{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    background:linear-gradient(to top,
-    rgba(0,0,0,0.65),
-    transparent 45%);
-}
-
-.showcase-content h3{
-    font-size:60px;
-
-    line-height:0.95;
-
-    letter-spacing:-3px;
-
-    margin-bottom:28px;
-}
-
-.showcase-content p{
-    color:var(--muted);
-
-    font-size:17px;
-
-    line-height:1.9;
-
-    margin-bottom:34px;
-}
-
-.tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:14px;
-}
-
-.tags div{
-    padding:13px 18px;
-
-    border-radius:999px;
-
-    background:rgba(255,255,255,0.03);
-
-    border:1px solid rgba(255,255,255,0.08);
-
-    color:#dcecff;
-
-    font-size:13px;
-    font-weight:600;
-}
-
-/* ====================================================== */
 /* PARALLAX */
 /* ====================================================== */
 
@@ -705,10 +614,6 @@ footer p{
 
 @media(max-width:1250px){
 
-    .showcase{
-        grid-template-columns:1fr;
-    }
-
     .departments{
         grid-template-columns:1fr;
     }
@@ -722,14 +627,6 @@ footer p{
 
     .gallery{
         grid-template-columns:1fr;
-    }
-
-    .showcase-content h3{
-        font-size:44px;
-    }
-
-    .showcase-image img{
-        height:480px;
     }
 
     .section{
@@ -750,9 +647,7 @@ footer p{
 <div class="glow-top"></div>
 <div class="glow-bottom"></div>
 
-<!-- ====================================================== -->
 <!-- HERO -->
-<!-- ====================================================== -->
 
 <section class="hero">
 
@@ -791,9 +686,7 @@ footer p{
 
 </section>
 
-<!-- ====================================================== -->
 <!-- OVERVIEW -->
-<!-- ====================================================== -->
 
 <section class="section fade" id="experience">
 
@@ -811,8 +704,6 @@ footer p{
         </p>
 
     </div>
-
-    <!-- DEPARTMENTS -->
 
     <div class="departments">
 
@@ -890,39 +781,9 @@ footer p{
 
     </div>
 
-    <!-- SHOWCASE -->
-
-    <div class="showcase">
-
-        <div class="showcase-image">
-            <img src="assets/images/teaser1.png">
-        </div>
-
-        <div class="showcase-content">
-
-            <h3>
-                New South Wales Police Force
-            </h3>
-
-            <p>
-                Dense urban patrol zones, realistic highway networks, major incident response, and detailed station environments inspired by New South Wales policing.
-            </p>
-
-            <div class="tags">
-                <div>Metropolitan Patrols</div>
-                <div>Traffic Operations</div>
-                <div>Urban Infrastructure</div>
-            </div>
-
-        </div>
-
-    </div>
-
 </section>
 
-<!-- ====================================================== -->
 <!-- PARALLAX -->
-<!-- ====================================================== -->
 
 <section class="parallax">
 
@@ -939,9 +800,7 @@ footer p{
 
 </section>
 
-<!-- ====================================================== -->
 <!-- GALLERY -->
-<!-- ====================================================== -->
 
 <section class="section fade" id="gallery">
 
@@ -1009,9 +868,7 @@ footer p{
 
 </section>
 
-<!-- ====================================================== -->
 <!-- END -->
-<!-- ====================================================== -->
 
 <section class="end">
 
@@ -1025,18 +882,6 @@ footer p{
     <p>
         Developed by Coastline Group.
     </p>
-
-    <div class="hero-buttons">
-
-        <a href="#" class="btn btn-primary">
-            Coastline Group
-        </a>
-
-        <a href="#gallery" class="btn btn-secondary">
-            View Gallery
-        </a>
-
-    </div>
 
 </section>
 
