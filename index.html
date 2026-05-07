@@ -16,18 +16,18 @@
 
 :root{
     --bg:#04070d;
-    --bg2:#0a1019;
-    --card:#0c1420;
+    --bg2:#0b1320;
+    --card:#0d1623;
+
     --line:rgba(255,255,255,0.07);
 
     --text:#ffffff;
-    --muted:#9fb0c7;
+    --muted:#a8b7ca;
 
-    --blue:#4da3ff;
-    --blue2:#81c4ff;
-    --blue3:#12304f;
+    --blue:#5ab0ff;
+    --blue2:#89cbff;
 
-    --shadow:0 35px 90px rgba(0,0,0,0.45);
+    --shadow:0 40px 100px rgba(0,0,0,0.45);
 }
 
 *{
@@ -42,16 +42,17 @@ html{
 
 body{
     font-family:'Inter',sans-serif;
-    background:linear-gradient(to bottom, #04070d, #07111c);
-    color:var(--text);
+    background:linear-gradient(to bottom, #04070d, #07111b);
+    color:white;
     overflow-x:hidden;
+
     animation:pageFade 1s ease;
 }
 
 @keyframes pageFade{
     from{
         opacity:0;
-        transform:translateY(12px);
+        transform:translateY(10px);
     }
 
     to{
@@ -67,24 +68,28 @@ body{
 .grid{
     position:fixed;
     inset:0;
-    z-index:-10;
 
     background:
     linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
 
     background-size:70px 70px;
+
+    z-index:-10;
 }
 
 .glow-top{
     position:fixed;
+
     width:900px;
     height:900px;
 
-    background:radial-gradient(circle, rgba(77,163,255,0.18), transparent 70%);
-
-    top:-400px;
+    top:-350px;
     right:-250px;
+
+    background:radial-gradient(circle,
+    rgba(90,176,255,0.18),
+    transparent 70%);
 
     filter:blur(60px);
 
@@ -93,13 +98,16 @@ body{
 
 .glow-bottom{
     position:fixed;
+
     width:700px;
     height:700px;
 
-    background:radial-gradient(circle, rgba(129,196,255,0.12), transparent 70%);
-
     bottom:-250px;
     left:-250px;
+
+    background:radial-gradient(circle,
+    rgba(137,203,255,0.1),
+    transparent 70%);
 
     filter:blur(60px);
 
@@ -112,45 +120,22 @@ body{
 
 .hero{
     min-height:100vh;
+
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
+
     text-align:center;
 
-    position:relative;
-
     padding:120px 7%;
+
+    position:relative;
 }
 
 .hero-content{
     max-width:1450px;
     position:relative;
     z-index:5;
-}
-
-.coastline-logo{
-    width:170px;
-    margin-bottom:40px;
-
-    filter:
-    drop-shadow(0 0 25px rgba(77,163,255,0.35))
-    drop-shadow(0 0 60px rgba(77,163,255,0.15));
-
-    animation:float 6s ease-in-out infinite;
-}
-
-@keyframes float{
-    0%{
-        transform:translateY(0px);
-    }
-
-    50%{
-        transform:translateY(-10px);
-    }
-
-    100%{
-        transform:translateY(0px);
-    }
 }
 
 .hero-badge{
@@ -166,45 +151,53 @@ body{
 
     background:rgba(255,255,255,0.03);
 
-    backdrop-filter:blur(16px);
+    backdrop-filter:blur(14px);
 
     margin-bottom:38px;
 
-    color:#d5e6ff;
+    color:#d8e8ff;
 
     font-size:13px;
     font-weight:600;
 }
 
-.hero-dot{
-    width:10px;
-    height:10px;
-    border-radius:50%;
-    background:var(--blue);
-    box-shadow:0 0 15px var(--blue);
+.hero-badge img{
+    width:22px;
+    height:22px;
+    object-fit:contain;
+
+    filter:
+    drop-shadow(0 0 12px rgba(90,176,255,0.3));
 }
 
 .hero h1{
-    font-size:clamp(70px, 9vw, 165px);
+    font-size:clamp(70px, 9vw, 170px);
+
     line-height:0.88;
+
     letter-spacing:-7px;
+
     font-weight:900;
-    margin-bottom:35px;
+
+    margin-bottom:34px;
 }
 
 .hero h1 span{
-    background:linear-gradient(135deg, #ffffff, #8bc7ff);
+    background:linear-gradient(135deg, #ffffff, #8ecfff);
+
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
 
 .hero p{
     max-width:900px;
+
     margin:auto;
 
-    color:#b6c4d8;
+    color:var(--muted);
 
     font-size:20px;
+
     line-height:1.9;
 
     margin-bottom:55px;
@@ -213,8 +206,8 @@ body{
 .hero-buttons{
     display:flex;
     justify-content:center;
-    flex-wrap:wrap;
     gap:18px;
+    flex-wrap:wrap;
 }
 
 .btn{
@@ -230,12 +223,13 @@ body{
 }
 
 .btn-primary{
-    background:linear-gradient(135deg, var(--blue), #66b7ff);
-    color:#03111f;
+    background:linear-gradient(135deg, var(--blue), #78c4ff);
+
+    color:#06111c;
 
     box-shadow:
-    0 15px 40px rgba(77,163,255,0.25),
-    0 0 40px rgba(77,163,255,0.15);
+    0 18px 45px rgba(90,176,255,0.22),
+    0 0 35px rgba(90,176,255,0.12);
 }
 
 .btn-primary:hover{
@@ -257,59 +251,6 @@ body{
 }
 
 /* ===================================================== */
-/* SCROLL */
-/* ===================================================== */
-
-.scroll{
-    position:absolute;
-
-    bottom:40px;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-
-    gap:14px;
-
-    color:#8fa2bc;
-
-    font-size:12px;
-    letter-spacing:3px;
-}
-
-.scroll-line{
-    width:1px;
-    height:60px;
-
-    background:linear-gradient(to bottom,
-    rgba(255,255,255,0),
-    rgba(255,255,255,0.5),
-    rgba(255,255,255,0));
-
-    animation:scrollMove 2s infinite;
-}
-
-@keyframes scrollMove{
-    0%{
-        opacity:0.2;
-        transform:translateY(0);
-    }
-
-    50%{
-        opacity:1;
-        transform:translateY(10px);
-    }
-
-    100%{
-        opacity:0.2;
-        transform:translateY(0);
-    }
-}
-
-/* ===================================================== */
 /* SECTIONS */
 /* ===================================================== */
 
@@ -321,6 +262,7 @@ body{
 .fade{
     opacity:0;
     transform:translateY(90px);
+
     transition:
     opacity 1.2s cubic-bezier(.16,1,.3,1),
     transform 1.2s cubic-bezier(.16,1,.3,1);
@@ -337,15 +279,19 @@ body{
 }
 
 .section-heading span{
-    color:#84c6ff;
+    color:#8bcfff;
+
     font-size:13px;
     font-weight:800;
+
     letter-spacing:3px;
 }
 
 .section-heading h2{
-    font-size:clamp(45px, 5vw, 90px);
+    font-size:clamp(45px,5vw,90px);
+
     line-height:0.95;
+
     letter-spacing:-4px;
 
     margin-top:22px;
@@ -354,11 +300,13 @@ body{
 
 .section-heading p{
     max-width:850px;
+
     margin:auto;
 
-    color:#aab8cb;
+    color:var(--muted);
 
     font-size:18px;
+
     line-height:1.9;
 }
 
@@ -369,7 +317,9 @@ body{
 .showcase{
     display:grid;
     grid-template-columns:1fr 1fr;
+
     gap:70px;
+
     align-items:center;
 
     margin-bottom:140px;
@@ -383,6 +333,7 @@ body{
     position:relative;
 
     border-radius:36px;
+
     overflow:hidden;
 
     border:1px solid rgba(255,255,255,0.08);
@@ -393,6 +344,7 @@ body{
 .showcase-image img{
     width:100%;
     height:700px;
+
     object-fit:cover;
 
     transition:1.2s cubic-bezier(.16,1,.3,1);
@@ -406,6 +358,7 @@ body{
 
 .showcase-image::after{
     content:"";
+
     position:absolute;
     inset:0;
 
@@ -416,15 +369,19 @@ body{
 
 .showcase-content h3{
     font-size:60px;
+
     line-height:0.95;
+
     letter-spacing:-3px;
 
     margin-bottom:28px;
 }
 
 .showcase-content p{
-    color:#aebcd0;
+    color:var(--muted);
+
     font-size:17px;
+
     line-height:1.9;
 
     margin-bottom:34px;
@@ -452,28 +409,87 @@ body{
 }
 
 /* ===================================================== */
+/* PARALLAX */
+/* ===================================================== */
+
+.parallax{
+    height:100vh;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.parallax img{
+    width:100%;
+    height:120%;
+
+    object-fit:cover;
+
+    filter:brightness(0.42);
+}
+
+.parallax::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(to bottom,
+    rgba(0,0,0,0.3),
+    rgba(0,0,0,0.92));
+}
+
+.parallax-content{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:0 7%;
+
+    z-index:5;
+}
+
+.parallax-content h2{
+    font-size:clamp(55px,7vw,130px);
+
+    line-height:0.92;
+
+    letter-spacing:-5px;
+}
+
+/* ===================================================== */
 /* DEPARTMENTS */
 /* ===================================================== */
 
 .departments{
     display:grid;
     grid-template-columns:repeat(4,1fr);
+
     gap:28px;
 }
 
 .department{
+    position:relative;
+
+    overflow:hidden;
+
     padding:42px;
 
     border-radius:34px;
 
-    background:linear-gradient(180deg, #101826, #09111a);
+    background:linear-gradient(180deg,
+    #101826,
+    #09111a);
 
     border:1px solid rgba(255,255,255,0.06);
 
     transition:0.4s cubic-bezier(.16,1,.3,1);
-
-    position:relative;
-    overflow:hidden;
 }
 
 .department::before{
@@ -483,7 +499,7 @@ body{
     inset:0;
 
     background:linear-gradient(135deg,
-    rgba(77,163,255,0.12),
+    rgba(90,176,255,0.12),
     transparent 60%);
 
     opacity:0;
@@ -498,82 +514,42 @@ body{
 .department:hover{
     transform:translateY(-10px);
 
-    border-color:rgba(77,163,255,0.22);
+    border-color:rgba(90,176,255,0.22);
 }
 
-.department img{
-    width:78px;
-    height:78px;
+.department-top{
+    display:flex;
+    align-items:center;
+
+    gap:20px;
+
+    margin-bottom:24px;
+}
+
+.department-top img{
+    width:72px;
+    height:72px;
+
     object-fit:contain;
 
-    margin-bottom:28px;
+    flex-shrink:0;
 
-    filter:drop-shadow(0 0 18px rgba(77,163,255,0.18));
+    filter:
+    drop-shadow(0 0 16px rgba(90,176,255,0.18));
 }
 
-.department h4{
-    font-size:28px;
-    line-height:1.15;
+.department-top h4{
+    font-size:27px;
 
-    margin-bottom:16px;
+    line-height:1.15;
 }
 
 .department p{
-    color:#aab8cb;
+    color:var(--muted);
+
     line-height:1.8;
+
     font-size:15px;
-}
-
-/* ===================================================== */
-/* PARALLAX */
-/* ===================================================== */
-
-.parallax{
-    height:100vh;
-    position:relative;
-    overflow:hidden;
-}
-
-.parallax img{
-    width:100%;
-    height:120%;
-    object-fit:cover;
-
-    filter:brightness(0.45);
-}
-
-.parallax::after{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    background:linear-gradient(to bottom,
-    rgba(0,0,0,0.35),
-    rgba(0,0,0,0.9));
-}
-
-.parallax-content{
-    position:absolute;
-    inset:0;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    padding:0 7%;
-
-    z-index:5;
-}
-
-.parallax-content h2{
-    font-size:clamp(50px, 7vw, 130px);
-
-    line-height:0.92;
-
-    letter-spacing:-5px;
 }
 
 /* ===================================================== */
@@ -583,6 +559,7 @@ body{
 .gallery{
     display:grid;
     grid-template-columns:repeat(3,1fr);
+
     gap:24px;
 }
 
@@ -601,6 +578,7 @@ body{
 .gallery-item img{
     width:100%;
     height:100%;
+
     object-fit:cover;
 
     transition:1.1s cubic-bezier(.16,1,.3,1);
@@ -610,6 +588,7 @@ body{
 
 .gallery-item:hover img{
     transform:scale(1.08);
+
     filter:brightness(1);
 }
 
@@ -626,19 +605,22 @@ body{
 
 .gallery-label{
     position:absolute;
-    bottom:24px;
+
     left:24px;
+    bottom:24px;
 
     z-index:5;
 }
 
 .gallery-label h5{
     font-size:22px;
+
     margin-bottom:6px;
 }
 
 .gallery-label span{
-    color:#b8c6d8;
+    color:#b9c8da;
+
     font-size:14px;
 }
 
@@ -648,7 +630,9 @@ body{
 
 .end{
     padding:220px 7%;
+
     text-align:center;
+
     position:relative;
 }
 
@@ -658,14 +642,14 @@ body{
     width:1000px;
     height:1000px;
 
-    background:radial-gradient(circle,
-    rgba(77,163,255,0.14),
-    transparent 70%);
-
     left:50%;
     top:50%;
 
     transform:translate(-50%,-50%);
+
+    background:radial-gradient(circle,
+    rgba(90,176,255,0.13),
+    transparent 70%);
 
     filter:blur(60px);
 }
@@ -674,7 +658,7 @@ body{
     position:relative;
     z-index:5;
 
-    font-size:clamp(60px, 8vw, 145px);
+    font-size:clamp(60px,8vw,145px);
 
     line-height:0.9;
 
@@ -688,11 +672,13 @@ body{
     z-index:5;
 
     max-width:850px;
+
     margin:auto;
 
-    color:#b2bfd0;
+    color:var(--muted);
 
     font-size:20px;
+
     line-height:1.9;
 
     margin-bottom:55px;
@@ -711,7 +697,8 @@ footer{
 }
 
 footer p{
-    color:#8798ad;
+    color:#8898ab;
+
     font-size:14px;
 }
 
@@ -755,6 +742,10 @@ footer p{
     .section{
         padding:120px 7%;
     }
+
+    .hero h1{
+        letter-spacing:-4px;
+    }
 }
 
 </style>
@@ -774,11 +765,12 @@ footer p{
 
     <div class="hero-content">
 
-        <img src="assets/images/coastline.png" class="coastline-logo">
-
         <div class="hero-badge">
-            <div class="hero-dot"></div>
-            Coastline Group Presentation
+
+            <img src="assets/images/coastline.png">
+
+            Coastline Group
+
         </div>
 
         <h1>
@@ -802,11 +794,6 @@ footer p{
 
         </div>
 
-    </div>
-
-    <div class="scroll">
-        <span>SCROLL</span>
-        <div class="scroll-line"></div>
     </div>
 
 </section>
@@ -956,13 +943,19 @@ footer p{
 
     <div class="departments">
 
+        <!-- NSWPF -->
+
         <div class="department">
 
-            <img src="assets/images/nswpf.png">
+            <div class="department-top">
 
-            <h4>
-                New South Wales Police Force
-            </h4>
+                <img src="assets/images/nswpf.png">
+
+                <h4>
+                    New South Wales Police Force
+                </h4>
+
+            </div>
 
             <p>
                 Metropolitan policing, traffic enforcement, operational support, and coordinated incident response.
@@ -970,13 +963,19 @@ footer p{
 
         </div>
 
+        <!-- NSWA -->
+
         <div class="department">
 
-            <img src="assets/images/nswa.png">
+            <div class="department-top">
 
-            <h4>
-                New South Wales Ambulance
-            </h4>
+                <img src="assets/images/nswa.png">
+
+                <h4>
+                    New South Wales Ambulance
+                </h4>
+
+            </div>
 
             <p>
                 Emergency medical response across urban environments and large-scale public incidents.
@@ -984,13 +983,19 @@ footer p{
 
         </div>
 
+        <!-- FRNSW -->
+
         <div class="department">
 
-            <img src="assets/images/frnsw.png">
+            <div class="department-top">
 
-            <h4>
-                Fire And Rescue New South Wales
-            </h4>
+                <img src="assets/images/frnsw.png">
+
+                <h4>
+                    Fire And Rescue New South Wales
+                </h4>
+
+            </div>
 
             <p>
                 Fire suppression, rescue incidents, hazardous environments, and urban emergency response.
@@ -998,13 +1003,19 @@ footer p{
 
         </div>
 
+        <!-- TNSW -->
+
         <div class="department">
 
-            <img src="assets/images/tnsw.png">
+            <div class="department-top">
 
-            <h4>
-                Transport For New South Wales
-            </h4>
+                <img src="assets/images/tnsw.png">
+
+                <h4>
+                    Transport For New South Wales
+                </h4>
+
+            </div>
 
             <p>
                 Rail systems, transport corridors, commuter infrastructure, and connected city movement.
