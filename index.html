@@ -47,13 +47,11 @@ header {
 .logo-text {
   font-weight: 600;
   line-height: 1.1;
-  white-space: nowrap;
 }
 
 .logo-text span {
   font-size: 0.7rem;
   opacity: 0.6;
-  margin-left: 8px;
 }
 
 nav { display: flex; gap: 6px; }
@@ -104,10 +102,22 @@ nav a:hover { background: rgba(255,255,255,0.12); }
   max-width: 650px;
 }
 
-.hero h1 { font-size: 3rem; margin: 0; }
-.hero p { opacity: 0.85; margin-top: 12px; }
+.hero h1 {
+  font-size: 3rem;
+  margin: 0;
+  white-space: nowrap;
+}
 
-.hero-buttons { display: flex; gap: 12px; margin-top: 20px; }
+.hero p {
+  opacity: 0.85;
+  margin-top: 12px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
 
 .btn {
   padding: 10px 18px;
@@ -132,8 +142,14 @@ nav a:hover { background: rgba(255,255,255,0.12); }
   text-align: center;
 }
 
-section { padding: 70px 60px; }
-.section-title { font-size: 1.6rem; margin-bottom: 30px; }
+section {
+  padding: 70px 60px;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  margin-bottom: 30px;
+}
 
 .grid {
   display: grid;
@@ -160,9 +176,18 @@ section { padding: 70px 60px; }
   display: block;
 }
 
-.card-content { padding: 20px; }
-.card h3 { margin: 0 0 8px; }
-.card p { opacity: 0.75; font-size: 0.92rem; }
+.card-content {
+  padding: 20px;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+}
+
+.card p {
+  opacity: 0.75;
+  font-size: 0.92rem;
+}
 
 .cta {
   margin: 40px 20px;
@@ -181,10 +206,14 @@ footer {
 }
 
 @media(max-width:900px){
-  .stats { grid-template-columns: 1fr 1fr; }
-  .hero h1 { font-size: 2.2rem; }
-}
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
 
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}
 </style>
 </head>
 
@@ -194,7 +223,8 @@ footer {
   <div class="logo-wrap">
     <img src="https://i.ibb.co/N6MwLQk0/image.webp" class="logo-img">
     <div class="logo-text">
-      New South Wales Police Force <span>Coastline Roleplay</span>
+      New South Wales Police Force<br>
+      <span>Coastline Roleplay</span>
     </div>
   </div>
 
@@ -210,10 +240,19 @@ footer {
 
 <div class="hero">
   <img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=1400&q=80">
+
   <div class="hero-overlay"></div>
+
   <div class="hero-content">
     <h1>New South Wales Police Force</h1>
-    <p>Responsible for keeping communities across New South Wales safe. Officers respond to emergencies, investigate crime, patrol local areas, and enforce the law. We do our very best to work closely with the community to prevent crime and keep the public safe.</p>
+
+    <p>
+      Responsible for keeping communities across New South Wales safe.
+      Officers respond to emergencies, investigate crime, patrol local areas,
+      and enforce the law. We do our very best to work closely with the
+      community to prevent crime and keep the public safe.
+    </p>
+
     <div class="hero-buttons">
       <a class="btn btn-secondary">Learn More</a>
     </div>
@@ -221,10 +260,25 @@ footer {
 </div>
 
 <div class="stats">
-  <div class="stat"><h2>20k+</h2><p>Officers</p></div>
-  <div class="stat"><h2>150+</h2><p>Stations</p></div>
-  <div class="stat"><h2>24/7</h2><p>Response</p></div>
-  <div class="stat"><h2>Statewide</h2><p>Coverage</p></div>
+  <div class="stat">
+    <h2>20k+</h2>
+    <p>Officers</p>
+  </div>
+
+  <div class="stat">
+    <h2>150+</h2>
+    <p>Stations</p>
+  </div>
+
+  <div class="stat">
+    <h2>24/7</h2>
+    <p>Response</p>
+  </div>
+
+  <div class="stat">
+    <h2>Statewide</h2>
+    <p>Coverage</p>
+  </div>
 </div>
 
 <section id="leadership">
@@ -234,48 +288,81 @@ footer {
 
     <div class="card">
       <img src="https://i.ibb.co/TF1tkqn.jpg">
+
       <div class="card-content">
         <h3>CheeseEater231</h3>
         <p><strong>Commissioner</strong></p>
-        <p>The Commissioner is the highest ranking officer. They oversee the entire department and have final authority over all operational, administrative, and disciplinary matters.</p>
+
+        <p>
+          The Commissioner is the highest ranking officer.
+          They oversee the entire department and have final authority
+          over all operational, administrative, and disciplinary matters.
+        </p>
       </div>
     </div>
 
     <div class="card">
       <img src="https://i.ibb.co/HLJ3yymB.jpg">
+
       <div class="card-content">
         <h3>thehgveygdvyvwg6</h3>
         <p><strong>Deputy Commissioner</strong></p>
-        <p>The Deputy Commissioner supports the Commissioner in leading the department. They oversee the Assistant Commissioners and assist in ensuring the department functions effectively.</p>
+
+        <p>
+          The Deputy Commissioner supports the Commissioner in leading
+          the department. They oversee the Assistant Commissioners and
+          assist in ensuring the department functions effectively.
+        </p>
       </div>
     </div>
 
     <div class="card">
       <img src="https://i.ibb.co/yFhSpGjj.jpg">
+
       <div class="card-content">
         <h3>DrFavPanda</h3>
         <p><strong>Assistant Commissioner</strong></p>
-        <p>There is one Assistant Commissioner for each of the three main branches, Metropolitan Field Operations, Investigation and Counter Terrorism, and People and Capability Command. Each Assistant Commissioner is responsible for the leadership, performance, and management of their respective branch.</p>
+
+        <p>
+          There is one Assistant Commissioner for each of the three
+          main branches, Metropolitan Field Operations, Investigation
+          and Counter Terrorism, and People and Capability Command.
+        </p>
+
         <p><em>Metropolitan Field Operations</em></p>
       </div>
     </div>
 
     <div class="card">
       <img src="" style="display:none;">
+
       <div class="card-content">
         <h3>Vacant</h3>
         <p><strong>Assistant Commissioner</strong></p>
-        <p>There is one Assistant Commissioner for each of the three main branches, Metropolitan Field Operations, Investigation and Counter Terrorism, and People and Capability Command. Each Assistant Commissioner is responsible for the leadership, performance, and management of their respective branch.</p>
+
+        <p>
+          There is one Assistant Commissioner for each of the three
+          main branches, Metropolitan Field Operations, Investigation
+          and Counter Terrorism, and People and Capability Command.
+        </p>
+
         <p><em>Investigation & Counter Terrorism</em></p>
       </div>
     </div>
 
     <div class="card">
       <img src="https://i.ibb.co/G43fSzmP.jpg">
+
       <div class="card-content">
         <h3>Jellybeanking20010</h3>
         <p><strong>Assistant Commissioner</strong></p>
-        <p>There is one Assistant Commissioner for each of the three main branches, Metropolitan Field Operations, Investigation and Counter Terrorism, and People and Capability Command. Each Assistant Commissioner is responsible for the leadership, performance, and management of their respective branch.</p>
+
+        <p>
+          There is one Assistant Commissioner for each of the three
+          main branches, Metropolitan Field Operations, Investigation
+          and Counter Terrorism, and People and Capability Command.
+        </p>
+
         <p><em>People & Capability Command</em></p>
       </div>
     </div>
